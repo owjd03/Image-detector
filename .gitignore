@@ -1,0 +1,53 @@
+# Operating system and editors
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.tmp
+
+# Python environments, bytecode, and tooling caches
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Model and dataset caches
+.cache/
+huggingface/
+resources/datasets/**
+resources/samples/**
+
+# Generated ML artifacts: keep only small checkpoints and report artifacts.
+model/outputs/**
+!model/outputs/**/
+!model/outputs/**/*.pt
+!model/outputs/**/*.csv
+!model/outputs/**/*.json
+!model/outputs/**/*.md
+!model/outputs/**/*.png
+!model/outputs/**/*.svg
+
+# Never publish copied error-analysis images.
+model/outputs/error_analysis/images/**
+
+# Next.js / Node
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/coverage/
+frontend/.vercel/
+frontend/next-env.d.ts
+frontend/*.tsbuildinfo
+frontend/npm-debug.log*

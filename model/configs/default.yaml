@@ -1,0 +1,18 @@
+project:
+  name: robust-ai-image-detector
+  seed: 42
+
+paths:
+  resources_dir: resources
+  outputs_dir: model/outputs
+  hf_cache_dir: .cache/huggingface
+
+model:
+  model_id: openai/clip-vit-large-patch14
+  revision: TO_BE_PINNED_IN_STAGE_02
+  embedding_dim: 768
+
+image_limits:
+  max_upload_bytes: 10485760
+  max_pixels: 40000000
+

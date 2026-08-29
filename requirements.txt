@@ -1,0 +1,25 @@
+# Python 3.12. Exact pins make experiment environments reproducible.
+#
+# RTX 5080/Linux: install the matching CUDA wheels first, for example:
+#   python -m pip install torch==2.8.0 torchvision==0.23.0 \
+#     --index-url https://download.pytorch.org/whl/cu128
+# Then install this file. On macOS, PyPI supplies the platform-native wheels.
+torch==2.8.0
+torchvision==0.23.0
+transformers==4.55.4
+Pillow==11.3.0
+datasets==4.0.0
+safetensors==0.6.2
+pandas==2.3.2
+pyarrow==21.0.0
+scikit-learn==1.7.1
+matplotlib==3.10.5
+seaborn==0.13.2
+PyYAML==6.0.2
+ImageHash==4.3.2
+fastapi==0.116.1
+uvicorn[standard]==0.35.0
+python-multipart==0.0.20
+pytest==8.4.1
+httpx==0.28.1
+
