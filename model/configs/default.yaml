@@ -12,3 +12,9 @@ model:
 image_limits:
   max_upload_bytes: 10485760
   max_pixels: 40000000
+datasets:
+  sid:
+    dataset_id: saberzl/SID_Set
+    revision: dc03ead57929879319ce30a82bfcfb8d317b10bd
+  cifake:
+    dataset_id: birdy654/cifake-real-and-ai-generated-synthetic-images

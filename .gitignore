@@ -27,6 +27,8 @@ htmlcov/
 .cache/
 huggingface/
 resources/datasets/**
+!resources/datasets/
+!resources/datasets/dataset_inventory.json
 resources/samples/**
 
 # Generated ML artifacts: keep only small checkpoints and report artifacts.

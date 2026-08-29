@@ -6,7 +6,7 @@ This is the authoritative index for the TechJam robust AI-image detector. Read i
 
 - Fewer than 72 hours remain; protect judged deliverables over optional breadth.
 - Hardware is an RTX 5080 machine with 32 GB system RAM. Detect VRAM at runtime with `nvidia-smi` or `python -m model.scripts.doctor --json`; do not hard-code it.
-- Use the deterministic Tier A SID subset: 30,000 core training images, 6,000 calibration/validation images, 6,000 final-evaluation images, and up to 1,000 tampered diagnostic images.
+- Use the deterministic Tier A SID subset: 10,000 core training images, 2,000 calibration/validation images, 2,000 internal final-evaluation images, and up to 250 tampered diagnostic images.
 - Use frozen, revision-pinned `openai/clip-vit-large-patch14` and disk-backed embedding shards.
 - Must-ship artifacts are the graded directory-to-JSON CLI, README, clean-versus-transformed robustness table, and error-analysis note.
 - FastAPI and Next.js are conditional: start them only after the core submission passes and at least 10 focused hours remain.

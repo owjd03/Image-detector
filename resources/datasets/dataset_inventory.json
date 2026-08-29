@@ -1,0 +1,86 @@
+{
+  "datasets": [
+    {
+      "byte_total": 10230631665,
+      "counts": {
+        "calibration": {
+          "0": 1000,
+          "1": 1000
+        },
+        "exploratory_tampered": {
+          "2": 250
+        },
+        "internal_final_evaluation": {
+          "0": 1000,
+          "1": 1000
+        },
+        "train": {
+          "0": 5000,
+          "1": 5000
+        }
+      },
+      "intended_role": "core_train_calibration_internal_evaluation_and_tampered_diagnostic",
+      "license": "CC BY 4.0",
+      "local_location": "resources/datasets/sid_set/tier_a",
+      "name": "SID_Set",
+      "official_test_available": false,
+      "retrieval_status": "complete",
+      "revision": "dc03ead57929879319ce30a82bfcfb8d317b10bd",
+      "selection_sha256": "ed452d3568ae4fce9921a75dcb5853904a5e7410c49cdefa559df8cf43f54793",
+      "source_url": "https://huggingface.co/datasets/saberzl/SID_Set"
+    },
+    {
+      "byte_total": 110717853,
+      "counts": {
+        "test/FAKE": 10000,
+        "test/REAL": 10000,
+        "train/FAKE": 50000,
+        "train/REAL": 50000
+      },
+      "intended_role": "cross_dataset_eval_only",
+      "license": "MIT (per dataset card)",
+      "local_location": "resources/datasets/cifake",
+      "name": "CIFAKE",
+      "retrieval_status": "complete_manual_download",
+      "revision": "manually downloaded Kaggle version; archive revision unavailable",
+      "sample_dimensions": {
+        "test/FAKE": [
+          32,
+          32
+        ],
+        "test/REAL": [
+          32,
+          32
+        ],
+        "train/FAKE": [
+          32,
+          32
+        ],
+        "train/REAL": [
+          32,
+          32
+        ]
+      },
+      "source_url": "https://www.kaggle.com/datasets/birdy654/cifake-real-and-ai-generated-synthetic-images"
+    },
+    {
+      "byte_total": 0,
+      "intended_role": "none; external demonstration deferred",
+      "license": "not evaluated because dataset was omitted",
+      "local_location": null,
+      "name": "WildFake challenge subset",
+      "retrieval_status": "omitted_by_plan",
+      "revision": null,
+      "source_url": "https://modelscope.cn/datasets/hy2628982280/WildFake/summary"
+    }
+  ],
+  "generated_at_utc": "2026-08-29T11:18:16.415681+00:00",
+  "quotas": {
+    "calibration_per_class": 1000,
+    "evaluation_per_class": 1000,
+    "tampered_limit": 250,
+    "train_per_class": 5000
+  },
+  "sampling_seed": 42,
+  "selected_tier": "A"
+}

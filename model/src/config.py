@@ -45,11 +45,29 @@ class ImageLimitsConfig:
 
 
 @dataclass(frozen=True)
+class SidDatasetConfig:
+    dataset_id: str
+    revision: str
+
+
+@dataclass(frozen=True)
+class CifakeDatasetConfig:
+    dataset_id: str
+
+
+@dataclass(frozen=True)
+class DatasetsConfig:
+    sid: SidDatasetConfig
+    cifake: CifakeDatasetConfig
+
+
+@dataclass(frozen=True)
 class AppConfig:
     project: ProjectConfig
     paths: PathsConfig
     model: ModelConfig
     image_limits: ImageLimitsConfig
+    datasets: DatasetsConfig
 
 
 def _section(data: Mapping[str, Any], key: str) -> Mapping[str, Any]:
@@ -100,6 +118,9 @@ def load_config(path: str | Path = DEFAULT_CONFIG_PATH) -> AppConfig:
     paths = _section(raw, "paths")
     model = _section(raw, "model")
     limits = _section(raw, "image_limits")
+    datasets = _section(raw, "datasets")
+    sid = _section(datasets, "sid")
+    cifake = _section(datasets, "cifake")
 
     result = AppConfig(
         project=ProjectConfig(
@@ -130,6 +151,15 @@ def load_config(path: str | Path = DEFAULT_CONFIG_PATH) -> AppConfig:
                 limits, "image_limits", "max_upload_bytes", int
             ),
             max_pixels=_required(limits, "image_limits", "max_pixels", int),
+        ),
+        datasets=DatasetsConfig(
+            sid=SidDatasetConfig(
+                dataset_id=_required(sid, "datasets.sid", "dataset_id", str),
+                revision=_required(sid, "datasets.sid", "revision", str),
+            ),
+            cifake=CifakeDatasetConfig(
+                dataset_id=_required(cifake, "datasets.cifake", "dataset_id", str),
+            ),
         ),
     )
     if result.project.seed < 0:

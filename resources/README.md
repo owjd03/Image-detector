@@ -23,5 +23,35 @@ checkpoint selection, hyperparameter tuning, confidence calibration, or verdict
 threshold selection. Later pipeline stages must encode and test this restriction,
 not rely on memory or convention.
 
-No dataset has been downloaded during Stage 01.
+## Stage 03 commands
+
+Tier A is pinned to SID_Set revision
+`dc03ead57929879319ce30a82bfcfb8d317b10bd` and seed 42. It selects 5,000
+records per binary class for training, 1,000 per class for calibration, 1,000
+per class for internal final evaluation, and up to 250 tampered diagnostics.
+The latter two binary roles remain children of the upstream validation split;
+SID_Set currently exposes no public official test split.
+
+```powershell
+.\.venv\Scripts\python.exe -m model.scripts.download_datasets --dataset sid --tier a
+.\.venv\Scripts\python.exe -m model.scripts.download_datasets --dataset sid --verify-only
+.\.venv\Scripts\python.exe -m model.scripts.download_datasets --dataset sid --tier a --resume
+```
+
+CIFAKE is downloaded only through Kaggle's official API. Configure
+`%USERPROFILE%\.kaggle\kaggle.json` using Kaggle's account settings, then run:
+
+```powershell
+.\.venv\Scripts\python.exe -m model.scripts.download_datasets --dataset cifake --tier a
+```
+
+WildFake is omitted from the current plan because the exact organizer subset is
+not available. It is not downloaded and does not influence training, selection,
+calibration, evaluation, or thresholds. A future explicit plan change may add
+the exact challenge subset only as `external_demo_only`.
+
+Expected Tier A working space is 10–15 GB based on the measured preflight. SID_Set is CC BY 4.0 according to
+its dataset card. CIFAKE's card states MIT and requires citation of CIFAR-10 and
+Bird & Lotfi (2024). WildFake is omitted, so its component-specific licensing
+was not evaluated for this run.
 
