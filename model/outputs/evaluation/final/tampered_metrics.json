@@ -1,0 +1,192 @@
+{
+  "cache_fingerprint": "6f6d7ce6b2b9ec821d913d9b53e23b2c9613a6a70e2abcc6214da787e6e7cce8",
+  "metrics": {
+    "blur_s0.5": {
+      "count": 250,
+      "fraction_above_threshold": 0.064,
+      "mean_probability": 0.0706077441573143,
+      "median_probability": 0.0029252227395772934,
+      "q10": 0.0024433773942291737,
+      "q90": 0.02913844957947731
+    },
+    "blur_s1.0": {
+      "count": 250,
+      "fraction_above_threshold": 0.052,
+      "mean_probability": 0.06095251441001892,
+      "median_probability": 0.0028788847848773003,
+      "q10": 0.002416985807940364,
+      "q90": 0.008660669438540936
+    },
+    "blur_s2.0": {
+      "count": 250,
+      "fraction_above_threshold": 0.04,
+      "mean_probability": 0.040576498955488205,
+      "median_probability": 0.0028037703596055508,
+      "q10": 0.002420680830255151,
+      "q90": 0.006415940821170807
+    },
+    "brightness_x0.8": {
+      "count": 250,
+      "fraction_above_threshold": 0.064,
+      "mean_probability": 0.06876140832901001,
+      "median_probability": 0.0029320172034204006,
+      "q10": 0.002448638901114464,
+      "q90": 0.043586067855358124
+    },
+    "brightness_x1.2": {
+      "count": 250,
+      "fraction_above_threshold": 0.048,
+      "mean_probability": 0.06383997201919556,
+      "median_probability": 0.0029205987229943275,
+      "q10": 0.002429638523608446,
+      "q90": 0.0853758454322815
+    },
+    "center_crop_0.8": {
+      "count": 250,
+      "fraction_above_threshold": 0.028,
+      "mean_probability": 0.0367613360285759,
+      "median_probability": 0.002863270929083228,
+      "q10": 0.0024368581362068653,
+      "q90": 0.00487266480922699
+    },
+    "clean": {
+      "count": 250,
+      "fraction_above_threshold": 0.068,
+      "mean_probability": 0.07368253916501999,
+      "median_probability": 0.002942667342722416,
+      "q10": 0.0024518503341823816,
+      "q90": 0.03533576801419258
+    },
+    "contrast_x0.8": {
+      "count": 250,
+      "fraction_above_threshold": 0.06,
+      "mean_probability": 0.06912805140018463,
+      "median_probability": 0.002939436351880431,
+      "q10": 0.0024685868993401527,
+      "q90": 0.03692278638482094
+    },
+    "contrast_x1.2": {
+      "count": 250,
+      "fraction_above_threshold": 0.064,
+      "mean_probability": 0.0707714855670929,
+      "median_probability": 0.0029126317240297794,
+      "q10": 0.002446806523948908,
+      "q90": 0.04464007914066315
+    },
+    "heldout_jpeg_q20": {
+      "count": 250,
+      "fraction_above_threshold": 0.076,
+      "mean_probability": 0.08614451438188553,
+      "median_probability": 0.0028615340124815702,
+      "q10": 0.0023990930058062077,
+      "q90": 0.30077624320983887
+    },
+    "heldout_jpeg_q50_resize_0.5": {
+      "count": 250,
+      "fraction_above_threshold": 0.04,
+      "mean_probability": 0.05173410102725029,
+      "median_probability": 0.002886122325435281,
+      "q10": 0.0024442432913929224,
+      "q90": 0.03104175254702568
+    },
+    "heldout_webp_q50": {
+      "count": 250,
+      "fraction_above_threshold": 0.072,
+      "mean_probability": 0.089586041867733,
+      "median_probability": 0.00293898512609303,
+      "q10": 0.002450620988383889,
+      "q90": 0.31012752652168274
+    },
+    "jpeg_q30": {
+      "count": 250,
+      "fraction_above_threshold": 0.076,
+      "mean_probability": 0.08642876893281937,
+      "median_probability": 0.0029333988204598427,
+      "q10": 0.0024617090821266174,
+      "q90": 0.20120251178741455
+    },
+    "jpeg_q50": {
+      "count": 250,
+      "fraction_above_threshold": 0.04,
+      "mean_probability": 0.05160548537969589,
+      "median_probability": 0.0029091895557940006,
+      "q10": 0.0024529725778847933,
+      "q90": 0.02472960576415062
+    },
+    "jpeg_q70": {
+      "count": 250,
+      "fraction_above_threshold": 0.056,
+      "mean_probability": 0.06644148379564285,
+      "median_probability": 0.0029591091442853212,
+      "q10": 0.0024816717486828566,
+      "q90": 0.041154894977808
+    },
+    "jpeg_q90": {
+      "count": 250,
+      "fraction_above_threshold": 0.064,
+      "mean_probability": 0.0720624327659607,
+      "median_probability": 0.002947058994323015,
+      "q10": 0.002473170403391123,
+      "q90": 0.03161943703889847
+    },
+    "noise_s0.02": {
+      "count": 250,
+      "fraction_above_threshold": 0.052,
+      "mean_probability": 0.057958971709012985,
+      "median_probability": 0.0028421885799616575,
+      "q10": 0.002424318576231599,
+      "q90": 0.01952856220304966
+    },
+    "noise_s0.05": {
+      "count": 250,
+      "fraction_above_threshold": 0.068,
+      "mean_probability": 0.07625997811555862,
+      "median_probability": 0.002858285792171955,
+      "q10": 0.0023668394424021244,
+      "q90": 0.09971769154071808
+    },
+    "noise_s0.10": {
+      "count": 250,
+      "fraction_above_threshold": 0.068,
+      "mean_probability": 0.08092271536588669,
+      "median_probability": 0.0028922134079039097,
+      "q10": 0.0024004594888538122,
+      "q90": 0.19985154271125793
+    },
+    "resize_0.25": {
+      "count": 250,
+      "fraction_above_threshold": 0.052,
+      "mean_probability": 0.060398172587156296,
+      "median_probability": 0.0028591833543032408,
+      "q10": 0.002399867633357644,
+      "q90": 0.025795554742217064
+    },
+    "resize_0.5": {
+      "count": 250,
+      "fraction_above_threshold": 0.064,
+      "mean_probability": 0.06987664848566055,
+      "median_probability": 0.0029232497327029705,
+      "q10": 0.0024447417818009853,
+      "q90": 0.035585805773735046
+    },
+    "saturation_x0.8": {
+      "count": 250,
+      "fraction_above_threshold": 0.072,
+      "mean_probability": 0.08060621470212936,
+      "median_probability": 0.00296530919149518,
+      "q10": 0.0024759310763329268,
+      "q90": 0.07700444757938385
+    },
+    "saturation_x1.2": {
+      "count": 250,
+      "fraction_above_threshold": 0.072,
+      "mean_probability": 0.07301687449216843,
+      "median_probability": 0.002949013840407133,
+      "q10": 0.0024717701599001884,
+      "q90": 0.05180947482585907
+    }
+  },
+  "prediction_file": "model/outputs/evaluation/final/tampered_predictions.csv",
+  "row_count": 5750,
+  "scope": "tampered"
+}

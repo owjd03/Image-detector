@@ -24,7 +24,7 @@ Recursively traverse `.jpg`, `.jpeg`, `.png`, and `.webp` case-insensitively in 
 
 ## Required work
 
-1. Create one `InferenceEngine` in `model/src/inference.py` that loads the pinned CLIP vision backbone, selected head state dictionary, temperature, threshold, and metadata once.
+1. Create one `InferenceEngine` in `model/src/inference.py` that loads the pinned CLIP vision backbone plus `checkpoint.pt`, `metadata.json`, and `frozen_model.json` from `model/outputs/final/` once. Verify the checkpoint SHA-256 before loading it.
 2. Batch valid images and preserve deterministic output order. Support `--checkpoint`, `--config`, `--device auto|cpu|cuda`, and `--batch-size` while defaulting to the frozen Stage 07 configuration.
 3. Write output atomically. For unreadable/unsupported files, continue, warn on stderr, and write `<output-stem>.errors.json` with path and sanitized reason. Never add error objects to the required predictions array.
 4. Return nonzero only for fatal conditions: invalid input directory, unavailable requested device, model/config failure, no readable supported images, or output failure.

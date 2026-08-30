@@ -1,0 +1,37 @@
+{
+  "cache_fingerprint": "4da90c7d9ad4cf43b6c9cfa1d258704a3b4e79f49ee371e2bbb6e4ac23ea178f",
+  "metrics": {
+    "clean": {
+      "accuracy": 0.57065,
+      "authentic_false_positive_rate": 0.0311,
+      "balanced_accuracy": 0.57065,
+      "brier_score": 0.3948563131859147,
+      "class_counts": {
+        "0": 10000,
+        "1": 10000
+      },
+      "confusion_matrix": [
+        [
+          9689,
+          311
+        ],
+        [
+          8276,
+          1724
+        ]
+      ],
+      "count": 20000,
+      "ece_10_bin": 0.39627234747372564,
+      "f1": 0.2864977149979227,
+      "pr_auc": 0.7444018724710151,
+      "precision": 0.8471744471744471,
+      "recall": 0.1724,
+      "roc_auc": 0.7524054499999999,
+      "tpr_at_1pct_fpr": 0.0768,
+      "tpr_at_5pct_fpr": 0.2422
+    }
+  },
+  "prediction_file": "model/outputs/evaluation/final/cifake_predictions.csv",
+  "row_count": 20000,
+  "scope": "cifake"
+}

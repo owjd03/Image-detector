@@ -20,7 +20,7 @@ Calibrate model scores using validation data, freeze the final configuration, an
    ```
 
 2. Choose the verdict threshold that maximizes balanced accuracy on the same pooled validation set. Resolve ties by the lower authentic-image false-positive rate, then the threshold closest to 0.5.
-3. Save temperature and threshold beside checkpoint metadata. `pred` is always `sigmoid(logit / temperature)`; the threshold affects only the human-readable verdict.
+3. Save temperature and threshold in the frozen configuration. When freezing, atomically copy the selected `checkpoint.pt` and its adjacent `metadata.json` into `model/outputs/final/`, then write `frozen_model.json` beside them. Preserve the training-run originals. Record and verify the checkpoint SHA-256. `pred` is always `sigmoid(logit / temperature)`; the threshold affects only the human-readable verdict.
 4. Compare the four seed-42 core experiments and finalist extra-seed summaries on SID validation, then propose the final model by highest worst-condition balanced accuracy on the graded conditions, breaking ties by macro transformed balanced accuracy, authentic false-positive rate, then clean ROC-AUC. Stop for confirmation before freezing it.
 5. Evaluate the frozen choices once on official SID test data, and separately on the non-scoring benchmarks: WildFake, and CIFAKE as a cross-dataset generalisation check. Never change a parameter after viewing any of these results.
 6. For clean and every condition, report sample/class counts, accuracy, balanced accuracy, precision, recall, F1, ROC-AUC, PR-AUC, authentic false-positive rate, confusion matrix, Brier score, and 10-bin expected calibration error.

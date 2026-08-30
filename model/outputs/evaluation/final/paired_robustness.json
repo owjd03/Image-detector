@@ -1,0 +1,6 @@
+{
+  "paired_transformed_rows": 44000,
+  "mean_probability_delta": -0.0008735549827635458,
+  "mean_absolute_probability_delta": 0.005554456861446273,
+  "clean_to_transformed_correctness_flips": 177
+}
