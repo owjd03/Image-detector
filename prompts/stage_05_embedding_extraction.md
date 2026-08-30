@@ -21,10 +21,10 @@ Extract and cache reproducible CLIP ViT-L/14 embeddings for the training bank an
 
 2. Apply the selected image-space transform first, then the CLIP processor. Use the vision embedding projection, L2-normalize each 768-value vector, and store embeddings as float16. Convert to float32 when training heads.
 3. Extract, in this priority order so that an interrupted run still leaves a trainable system:
-   - Core SID training: one clean and two planned augmented variants per source. **This is the highest priority; nothing downstream works without it.**
-   - SID validation on a fixed subsample across a narrow `--conditions` set, sufficient to drive Stage 06 checkpoint selection.
-   - SID validation/test: clean plus every graded condition, then every held-out condition.
-   - CIFAKE: clean only for the required cross-dataset generalisation check; transformed CIFAKE is optional after core artifacts exist.
+   - Core SID training: one clean and two planned augmented variants per source, for **30,000 embeddings total**. **This is the highest priority; nothing downstream works without it.**
+   - SID calibration: all 2,000 balanced sources across clean, every graded condition, and every held-out condition (46,000 embeddings).
+   - SID final evaluation: all 2,000 balanced sources across clean, every graded condition, and every held-out condition (46,000 embeddings).
+   - CIFAKE: all 20,000 official-test images, clean only, for the required cross-dataset generalisation check.
    - WildFake: clean only in a physically separate `external_demo_only` namespace; transformed WildFake is optional and never adaptive.
 4. Support `--conditions` (comma-separated IDs or `all`) and `--subsample N` to scope the evaluation sweep. The fixed validation subsample must be seed-derived and stable across runs so Stage 06 selection is reproducible.
 5. Extract held-out conditions for validation and test sources **only**. Requesting them for a training split is a hard failure, not a warning — they exist precisely because the model must never have seen them.
@@ -34,6 +34,10 @@ Extract and cache reproducible CLIP ViT-L/14 embeddings for the training bank an
 9. Log images/second, batches completed, elapsed time, ETA, unreadable records, output size, device, dtype, and CUDA peak memory. Support configurable batch size, workers, split, condition, and dry-run sample count. Report the ETA before the bulk of the work starts, so an over-budget sweep can be narrowed rather than abandoned halfway.
 10. Fail if WildFake metadata is requested with a training purpose or if a derivative's source split disagrees with the manifest.
 11. Keep caches disk-backed. Choose the preflight batch from detected VRAM: 32 for at least 16 GB, 16 for 12–15 GB, 8 for 8–11 GB, or 4 below 8 GB. Start with four data-loader workers and prefetch factor two; increase workers to eight only if measured throughput improves without excessive RAM use. On CUDA out-of-memory, halve the batch to a minimum of one, clear only transient CUDA state, resume from the last completed shard, and record the stable settings. Do not delete valid shards.
+
+### Bounded-memory SID loading
+
+Process SID descriptors in Parquet file/row order. Retain at most one Parquet image column in memory, release unused Arrow memory before opening the next file, and limit decoded-image prefetch to one GPU batch. The extractor must not cache multiple complete SID Parquet image columns.
 
 ## Verification
 

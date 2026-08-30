@@ -1,0 +1,250 @@
+{
+  "cifake_scope": "official_test_split_only",
+  "condition_counts": {
+    "blur_s0.5": 1053,
+    "blur_s1.0": 1053,
+    "blur_s2.0": 1053,
+    "brightness_x0.8": 1053,
+    "brightness_x1.2": 1053,
+    "center_crop_0.8": 1053,
+    "clean": 10000,
+    "contrast_x0.8": 1052,
+    "contrast_x1.2": 1053,
+    "jpeg_q30": 1053,
+    "jpeg_q50": 1053,
+    "jpeg_q70": 1053,
+    "jpeg_q90": 1053,
+    "noise_s0.02": 1053,
+    "noise_s0.05": 1052,
+    "noise_s0.10": 1052,
+    "resize_0.25": 1052,
+    "resize_0.5": 1052,
+    "saturation_x0.8": 1052,
+    "saturation_x1.2": 1052
+  },
+  "datasets": {
+    "cifake": 20000,
+    "sid": 14250
+  },
+  "elapsed_seconds": 0.0,
+  "evaluation_descriptor_rows": 117750,
+  "exact_cross_role": [],
+  "finalized_from_existing_artifacts": true,
+  "manifest_rows": 34250,
+  "near_cross_role": [
+    {
+      "distance": 2,
+      "left": "sid:validation:full_synthetic_003157",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "internal_final_evaluation"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_035783"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_000399",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_063944"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_000293",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_047133"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_004968",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_050518"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_008050",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_061388"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_005817",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_066309"
+    },
+    {
+      "distance": 2,
+      "left": "sid:validation:full_synthetic_007203",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_061064"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_006908",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_010546"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_005865",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_020893"
+    },
+    {
+      "distance": 2,
+      "left": "sid:validation:full_synthetic_007727",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "validation",
+          "internal_final_evaluation"
+        ]
+      ],
+      "right": "sid:validation:full_synthetic_008880"
+    },
+    {
+      "distance": 2,
+      "left": "sid:validation:full_synthetic_007727",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "calibration"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_050529"
+    },
+    {
+      "distance": 4,
+      "left": "sid:validation:full_synthetic_008880",
+      "partitions": [
+        [
+          "sid",
+          "validation",
+          "internal_final_evaluation"
+        ],
+        [
+          "sid",
+          "train",
+          "train"
+        ]
+      ],
+      "right": "sid:train:full_synthetic_050529"
+    }
+  ],
+  "near_report_truncated": false,
+  "near_threshold": 4,
+  "roles": {
+    "calibration": 2000,
+    "cross_dataset_eval": 20000,
+    "exploratory_tampered": 250,
+    "internal_final_evaluation": 2000,
+    "train": 10000
+  },
+  "training_descriptor_rows": 30000
+}

@@ -45,6 +45,11 @@ CIFAKE is downloaded only through Kaggle's official API. Configure
 .\.venv\Scripts\python.exe -m model.scripts.download_datasets --dataset cifake --tier a
 ```
 
+Only CIFAKE's supplied 20,000-image test split enters the Stage 04 manifest and
+cross-dataset benchmark. Its 100,000-image training folder remains preserved but
+unused; including it revealed exact train/test pixel duplicates and provides no
+benefit because CIFAKE is forbidden from training and model selection.
+
 WildFake is omitted from the current plan because the exact organizer subset is
 not available. It is not downloaded and does not influence training, selection,
 calibration, evaluation, or thresholds. A future explicit plan change may add
