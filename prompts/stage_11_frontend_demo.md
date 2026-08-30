@@ -22,6 +22,10 @@ Begin only after conditional Stage 10 passes and enough of its original 10-hour 
 6. Read the API base URL from a public environment variable. Centralize fetch logic and validate response shapes before rendering.
 7. Keep styling responsive and presentation-ready without auth, accounts, history, analytics, database, or unrelated pages.
 
+## Markdown report
+
+Generate `report/frontend_report.md` with implemented states and features, accessibility checks, component/API-client/end-to-end results, production build result, real-backend demonstration evidence, commands used, and repository-relative screenshot links. If this conditional stage is skipped, Stage 12 must create the file with status `Skipped` and the documented reason.
+
 ## Tests
 
 - Component tests for picker validation, transform selection, loading, reset, success, and backend error states.
@@ -32,4 +36,4 @@ Begin only after conditional Stage 10 passes and enough of its original 10-hour 
 
 ## Exit gate
 
-Run tests/build and demonstrate the page against the real local backend with licensed authentic and synthetic samples. Report results and rerun the affected Stage 12 documentation, audit, and end-to-end checks.
+Run tests/build and demonstrate the page against the real local backend with licensed authentic and synthetic samples. Report results, confirm `report/frontend_report.md` was generated, and rerun the affected Stage 12 documentation, audit, and end-to-end checks.

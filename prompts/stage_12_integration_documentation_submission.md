@@ -24,6 +24,10 @@ Prove clean-machine reproducibility and prepare every judged deliverable without
 9. Audit Git for credentials, datasets, CLIP weights, caches, large binaries, local absolute paths, generated frontend output, and ignored error images. Record classifier checkpoint and results sizes.
 10. Run all Python tests, frontend tests/build, CLI contract tests, API tests, and one real end-to-end browser flow. If Stages 10–11 were cut per Stage 00, say so explicitly in the README rather than leaving the omission to be discovered.
 
+## Markdown report
+
+Generate `report/submission_report.md` as the final report index and audit summary. Link `training_report.md`, `evaluation_report.md`, `error_analysis.md`, `cli_report.md`, `api_report.md`, and `frontend_report.md`; record deliverable status, reproducibility commands and results, Git audit findings, artifact sizes, conditional-stage decisions, remaining manual actions, and repository-relative links. Never fabricate a missing report: mark it `Pending` or `Skipped` with a reason. Before exiting Stage 12, confirm this file links every available stage report.
+
 ## Acceptance evidence
 
 - The CLI works independently while the API/frontend are stopped.

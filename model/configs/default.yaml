@@ -18,3 +18,12 @@ datasets:
     revision: dc03ead57929879319ce30a82bfcfb8d317b10bd
   cifake:
     dataset_id: birdy654/cifake-real-and-ai-generated-synthetic-images
+training:
+  linear_learning_rate: 0.001
+  mlp_learning_rate: 0.0003
+  weight_decay: 0.0001
+  max_epochs: 100
+  early_stopping_patience: 10
+  clean_batch_size: 1024
+  grouped_sources_per_batch: 341
+  consistency_lambda: 1.0

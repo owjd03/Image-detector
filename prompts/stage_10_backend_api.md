@@ -30,6 +30,10 @@ Verdicts use the frozen Stage 07 threshold and wording “Likely AI-generated”
 6. Serialize GPU inference through a bounded lock or queue to avoid concurrent VRAM spikes. Decode/validation failures must not enter that critical section.
 7. Add structured request timing and sanitized error logs without retaining uploaded bytes.
 
+## Markdown report
+
+Generate `report/api_report.md` with startup/device/memory measurements, warm inference latency, endpoint and validation test tables, CLI agreement evidence, CORS behavior, commands used, and repository-relative artifact links. If this conditional stage is skipped, Stage 12 must create the file with status `Skipped` and the documented reason.
+
 ## Tests
 
 - Health before/after startup, response schemas, numeric agreement with CLI, threshold labels, and transform metadata.
@@ -39,4 +43,4 @@ Verdicts use the frozen Stage 07 threshold and wording “Likely AI-generated”
 
 ## Exit gate
 
-Run API tests and local curl examples for all endpoints. Report startup time, warm inference latency, device, memory, and validation behavior, then continue to Stage 11 and rerun affected Stage 12 checks afterward.
+Run API tests and local curl examples for all endpoints. Report startup time, warm inference latency, device, memory, and validation behavior; confirm `report/api_report.md` was generated, then continue to Stage 11 and rerun affected Stage 12 checks afterward.

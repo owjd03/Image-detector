@@ -26,6 +26,10 @@ The **Error Analysis Note is a required challenge deliverable**, so this stage a
 9. Implement ViT gradient-based patch saliency or attention rollout for a small fixed subset. Label every visualization "qualitative, not causal." Do not use Grad-CAM APIs designed only for CNN feature maps, and never let saliency block this stage.
 10. Ensure report-ready images are team-created, appropriately licensed, or omitted from the public repository and demo.
 
+## Markdown report
+
+Write the required note to `report/error_analysis.md`. Include recurring failure patterns, authentic-image false-positive harms, transformation sensitivity, pixel-only provenance limitations, reviewed case IDs, licensing status, completed tier, and repository-relative links to metadata and plots. Do not place raw dataset images or absolute local paths in the report.
+
 ## Tests and checks
 
 - No raw dataset image becomes tracked by Git. *(Required tier — verify before committing anything.)*
@@ -36,4 +40,4 @@ The **Error Analysis Note is a required challenge deliverable**, so this stage a
 
 ## Exit gate
 
-Report error counts, representative metadata, the required note, licensing status, and completed tier, then continue to Stage 09. Manual tags may be reviewed later and must not block the required note.
+Report error counts, representative metadata, licensing status, and completed tier; confirm `report/error_analysis.md` exists, then continue to Stage 09. Manual tags may be reviewed later and must not block the required note.

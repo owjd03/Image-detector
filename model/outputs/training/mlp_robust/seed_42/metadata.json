@@ -1,0 +1,36 @@
+{
+  "architecture": "mlp",
+  "best_epoch": 30,
+  "created_utc": "2026-08-30T12:29:40.325101+00:00",
+  "device": "cuda",
+  "duration_seconds": 4.632493200013414,
+  "epochs_run": 40,
+  "experiment": "mlp_robust",
+  "git_commit": "7a031d8626c0e28495526693c7bfdde0653b5d72",
+  "seed": 42,
+  "selection_excludes": [
+    "heldout",
+    "test",
+    "cifake",
+    "wildfake",
+    "tampered"
+  ],
+  "selection_roles": [
+    "calibration"
+  ],
+  "settings": {
+    "clean_batch_size": 1024,
+    "consistency_lambda": 1.0,
+    "early_stopping_patience": 10,
+    "grouped_sources_per_batch": 341,
+    "linear_learning_rate": 0.001,
+    "max_epochs": 100,
+    "mlp_learning_rate": 0.0003,
+    "weight_decay": 0.0001
+  },
+  "torch_version": "2.8.0+cu128",
+  "train_cache_fingerprint": "5c8200f35520dcb7c4576ce5d83941f13f6b5a41a36332dab2f5e4841b9aa767",
+  "validation_cache_fingerprint": "81e8a913545e635b20bb6df3d5391642d2dc976b0a726afc46ff46853b9f4297",
+  "validation_loss": 0.024129221215844154,
+  "worst_condition_balanced_accuracy": 0.9874999821186066
+}

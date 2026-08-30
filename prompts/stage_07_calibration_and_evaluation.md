@@ -32,6 +32,10 @@ Calibrate model scores using validation data, freeze the final configuration, an
 9. Join transformed predictions to their clean `source_id` and report probability delta, correctness flips, and metric degradation. Stratified paired bootstrap intervals and extra plots are optional after the core tables exist.
 10. Export long-form CSV/JSON, a compact Markdown table, confusion matrices, reliability plots, clean-versus-robust ablation plot, and severity-versus-degradation plots. Clearly label validation, SID test, held-out, CIFAKE, and WildFake scopes.
 
+## Markdown report
+
+Generate `report/evaluation_report.md` from the saved CSV/JSON and plot artifacts. Include sample counts, calibration temperature and threshold, complete per-condition metric tables, robustness/generalisation/false-positive trade-offs, limitations, warnings for undefined metrics, timings, and repository-relative links to machine-readable outputs and plots. Clearly label validation, SID test, held-out, CIFAKE, WildFake, and tampered scopes. Do not invent unavailable results.
+
 ## Failure handling
 
 Undefined metrics from a missing class must be explicit `null` plus a warning, never silently zero. Reject duplicate source-condition rows, uncalibrated outputs, or any WildFake reference in selection metadata.
@@ -50,4 +54,4 @@ Selection, calibration, and thresholding read **graded-condition SID validation 
 
 ## Exit gate
 
-Before final evaluation, present the proposed model identity, validation evidence, temperature, and threshold and stop for confirmation. After confirmation, freeze once, produce the core trade-off tables and available optional artifacts, declare that no post-evaluation tuning occurred, and continue to Stage 08.
+Before final evaluation, present the proposed model identity, validation evidence, temperature, and threshold and stop for confirmation. After confirmation, freeze once, produce the core trade-off tables and available optional artifacts, declare that no post-evaluation tuning occurred, and confirm `report/evaluation_report.md` was generated before continuing to Stage 08.

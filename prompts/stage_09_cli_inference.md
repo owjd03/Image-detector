@@ -32,6 +32,10 @@ Recursively traverse `.jpg`, `.jpeg`, `.png`, and `.webp` case-insensitively in 
 6. Run the finished CLI over the supplied WildFake demonstration subset and keep the resulting `predictions.json` as a shipped artifact. It costs one command and proves the graded script runs end-to-end on the organizers' own data shape and scale rather than only on a handful of local samples. This is a demonstration run: it must not feed back into any threshold, calibration, or selection decision.
 7. Write a stub `README.md` at the repository root before leaving this stage — what the project is, how to install it, and how to run `predict.py`, with a placeholder for results. Stage 12 expands it into the full deliverable. A repository with a working graded CLI and a short README is a valid submission; one with neither is not.
 
+## Markdown report
+
+Generate `report/cli_report.md` containing the exact tested commands, checkpoint and fingerprint, input/readable/error counts, timings, device, output-schema verification, offline status, test results, and repository-relative links to prediction/error artifacts. Do not include absolute local paths or invented results.
+
 ## Tests
 
 - Nested folders, mixed-case extensions, EXIF rotation, grayscale/RGBA conversion, corrupt images, unsupported files, empty directories, and output overwrite behavior.
@@ -43,4 +47,4 @@ Recursively traverse `.jpg`, `.jpeg`, `.png`, and `.webp` case-insensitively in 
 
 ## Exit gate
 
-Run the CLI against a mixed sample directory from a clean process with CLIP offline. Report prediction/error JSON, timings, tests, and README status, then continue directly to the core Stage 12 work.
+Run the CLI against a mixed sample directory from a clean process with CLIP offline. Report prediction/error JSON, timings, tests, and README status; confirm `report/cli_report.md` was generated, then continue directly to the core Stage 12 work.

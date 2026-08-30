@@ -48,6 +48,10 @@ Everything else — architecture, seeds, optimizer policy, selection rule — is
 5. Save small `.pt` state dictionaries plus adjacent JSON metadata containing architecture, seed, cache fingerprint, epoch, metrics, code commit, and dependency versions. Do not serialize model objects or CLIP weights.
 6. Write epoch histories and a consolidated comparison table. Select the best seed per experiment by its specified validation rule, while preserving all seed results.
 
+## Markdown report
+
+Generate `report/training_report.md` from the saved histories and comparison artifacts. Include embedding-cache fingerprints, experiment settings, per-seed validation metrics, selected finalists, checkpoint paths, learning-curve links, training duration/device, and test results. Use repository-relative links and write `Not run` for optional experiments that were skipped. Do not invent results.
+
 ## Tests
 
 - Forward-shape, gradient, save/reload, and deterministic-repeat tests.
@@ -62,4 +66,4 @@ Everything else — architecture, seeds, optimizer policy, selection rule — is
 
 ## Exit gate
 
-Report the four seed-42 summaries, finalist seed variance, selected checkpoints, learning curves, optional sensitivity status, and validation-only selection proof, then continue to Stage 07 without running final evaluation.
+Report the four seed-42 summaries, finalist seed variance, selected checkpoints, learning curves, optional sensitivity status, and validation-only selection proof. Confirm that `report/training_report.md` contains the same evidence, then continue to Stage 07 without running final evaluation.
