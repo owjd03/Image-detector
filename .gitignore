@@ -5,6 +5,9 @@
 *.swp
 *.tmp
 
+# Private implementation prompts
+prompts/
+
 # Python environments, bytecode, and tooling caches
 .venv/
 venv/
