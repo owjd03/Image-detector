@@ -1,10 +1,10 @@
 {
   "cache_location": ".cache/huggingface",
   "cuda_benchmark": {
-    "images_per_second": 12.930120460384298,
-    "peak_allocated_memory_bytes": 640856576
+    "images_per_second": null,
+    "peak_allocated_memory_bytes": null
   },
-  "downloaded_at_utc": "2026-08-29T08:58:30.698792+00:00",
+  "downloaded_at_utc": "2026-08-31T02:18:41.271318+00:00",
   "embedding_dimension": 768,
   "model_id": "openai/clip-vit-large-patch14",
   "parameter_counts": {
@@ -41,7 +41,7 @@
   "revision": "32bd64288804d66eefd0ccbe215aa642df71cc41",
   "under_2_billion_parameters": true,
   "versions": {
-    "torch": "2.8.0+cu128",
+    "torch": "2.8.0",
     "transformers": "4.55.4"
   }
 }

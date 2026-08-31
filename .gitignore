@@ -8,6 +8,11 @@
 # Private implementation prompts
 prompts/
 
+# Local inference inputs and outputs
+/images/
+/predictions.json
+/predictions.errors.json
+
 # Python environments, bytecode, and tooling caches
 .venv/
 venv/

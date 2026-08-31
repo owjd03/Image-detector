@@ -32,8 +32,18 @@ def discover(input_dir: Path) -> list[Path]:
 def atomic_json(path: Path, payload: object) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
-    temporary.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
+    temporary.write_text(json.dumps(payload, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
     os.replace(temporary, path)
+
+
+def verdict_line(image_path: str, probability: float, threshold: float) -> str:
+    """Format one calibrated prediction for a human reading the terminal."""
+
+    verdict = "AI-GENERATED" if probability >= threshold else "AUTHENTIC"
+    return (
+        f"- {image_path}: {verdict} | "
+        f"AI probability {probability:.2%} | authentic probability {1.0 - probability:.2%}"
+    )
 
 
 def run(args: argparse.Namespace, engine_factory: Callable[..., InferenceEngine] = InferenceEngine) -> dict[str, object]:
@@ -97,6 +107,15 @@ def main() -> int:
             raise ValueError("--batch-size must be positive")
         summary = run(args)
         print(json.dumps(summary, indent=2))
+        predictions = json.loads(args.output.read_text(encoding="utf-8"))
+        engine = summary.get("engine", {})
+        threshold = engine.get("threshold") if isinstance(engine, dict) else None
+        if not isinstance(threshold, (int, float)):
+            raise RuntimeError("Inference engine metadata does not contain a numeric threshold")
+        print("\nFinal verdicts:")
+        for prediction in predictions:
+            print(verdict_line(prediction["image_path"], prediction["pred"], float(threshold)))
+        print("\nThese are model estimates, not proof of image provenance.")
         return 0
     except Exception as error:
         print(f"error: {error}", file=sys.stderr)

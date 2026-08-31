@@ -5,7 +5,7 @@ from pathlib import Path
 from PIL import Image
 import pytest
 
-from model.scripts.predict import discover, run
+from model.scripts.predict import discover, run, verdict_line
 
 
 class MockEngine:
@@ -85,3 +85,12 @@ def test_empty_and_unsupported_only_directories_are_fatal(tmp_path) -> None:
     (tmp_path / "notes.txt").write_text("ignored", encoding="utf-8")
     with pytest.raises(ValueError, match="no supported images"):
         run(arguments(tmp_path, output), MockEngine)
+
+
+def test_human_verdict_uses_frozen_threshold() -> None:
+    authentic = verdict_line("real.jpg", 0.002696, 0.606963)
+    synthetic = verdict_line("fake.png", 0.85, 0.606963)
+    assert "AUTHENTIC" in authentic
+    assert "AI probability 0.27%" in authentic
+    assert "authentic probability 99.73%" in authentic
+    assert "AI-GENERATED" in synthetic

@@ -173,27 +173,47 @@ PowerShell:
 ```powershell
 New-Item -ItemType Directory -Force images | Out-Null
 .\.venv\Scripts\python.exe model/scripts/predict.py --input_dir images --output predictions.json --device auto --batch-size 32
-Get-Content predictions.json
 ```
 
-Bash:
+macOS/Linux:
 
 ```bash
 mkdir -p images
 .venv/bin/python model/scripts/predict.py --input_dir images --output predictions.json --device auto --batch-size 32
-cat predictions.json
 ```
 
-The output contains exactly one object per readable image:
+The command prints an execution summary followed by one human-readable result
+per image. For example:
+
+```text
+Final verdicts:
+- example.jpg: AUTHENTIC | AI probability 0.27% | authentic probability 99.73%
+
+These are model estimates, not proof of image provenance.
+```
+
+The verdict uses the frozen threshold `0.6069634556770325`:
+
+- A probability at or above the threshold prints `AI-GENERATED`.
+- A probability below the threshold prints `AUTHENTIC`.
+
+On the RTX 5080 machine, `--device auto` selects CUDA. On the current Mac
+setup, it selects CPU. A smaller batch such as `--batch-size 1` is sufficient
+for one image; increasing the batch size helps when processing many images.
+
+The command also writes `predictions.json` for programs or submission graders.
+It contains exactly one object per readable image:
 
 ```json
 [{"image_path":"nested/example.jpg","pred":0.7312}]
 ```
 
-`pred` is the calibrated probability assigned to the synthetic class. The
-frozen verdict threshold is `0.6069634556770325`, but the CLI deliberately
-returns probabilities rather than replacing them with labels. Unreadable files
-are skipped and recorded separately in `predictions.errors.json`.
+`pred` is the calibrated probability assigned to the AI-generated class. The
+JSON deliberately retains probabilities instead of adding verdict labels, so
+its required `{image_path, pred}` schema remains stable. To inspect the file
+manually, use `Get-Content predictions.json` in PowerShell or
+`cat predictions.json` on macOS/Linux. Unreadable files are skipped, reported
+on standard error, and recorded separately in `predictions.errors.json`.
 
 ## Train and evaluate from scratch
 
